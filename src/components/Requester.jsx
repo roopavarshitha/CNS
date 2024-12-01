@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ethers } from "ethers";
-import contractABI from "../utils/contractABI.json";
+import identityabi from "../Identityabi.json";  // Import with lowercase 'identityabi'
 
 const Requester = () => {
     const [address, setAddress] = useState("");
@@ -11,8 +11,8 @@ const Requester = () => {
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const signer = provider.getSigner();
             const contract = new ethers.Contract(
-                "YOUR_CONTRACT_ADDRESS",
-                contractABI,
+                "CONTRACT_ADDRESS",  // Replace with your deployed contract address
+                identityabi,  // Use the imported identityabi here (match the import name)
                 signer
             );
 
